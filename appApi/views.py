@@ -21,3 +21,10 @@ def cadastrar_usuario(request):
     else:
         form_usuario = UserCreationForm
     return render(request, 'registrar.html',{'form_usuario':form_usuario})
+
+@login_required
+def procura_nome(request):
+    nome = request.GET["nome"]
+    print(nome)
+    j_son_nome = requests.get('https://api.agify.io?name='+nome).json()
+    return render(request,'procura_nome.html',{'json_nome':j_son_nome})

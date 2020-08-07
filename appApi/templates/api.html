@@ -1,6 +1,13 @@
 <h1>Hello</h1>
+<form method="GET" action="{% url 'procura_nome' %}">
+<input type="text" name="nome" id="nome" placeholder="Digite um nome: ">
+<button type="submit">Procurar</button> 
+</form>
 <h2>{{nomes.name}}</h2>
 <h3>{{nomes.age}}</h3>
 <h4>{{nomes.count}}</h4>
 
 <p><a href="{% url 'logout' %}">logout</a></p>
+{% block body%}
+{% endblock %}	
+
