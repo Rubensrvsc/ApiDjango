@@ -2,15 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.utils.datastructures import MultiValueDictKeyError
 import requests
 
 # Create your views here.
 
 @login_required
 def ApiResquest(request):
-    j_son = requests.get('https://api.agify.io?name=michael').json()
-    print(j_son)
-    return render(request,'api.html',{'nomes':j_son})
+    return render(request,'api.html')
 
 def cadastrar_usuario(request):
     if request.method == "POST":
@@ -24,7 +23,9 @@ def cadastrar_usuario(request):
 
 @login_required
 def procura_nome(request):
-    nome = request.GET["nome"]
-    print(nome)
-    j_son_nome = requests.get('https://api.agify.io?name='+nome).json()
+    try:
+        nome = request.GET["nome"]
+        j_son_nome = requests.get('https://api.agify.io?name='+nome).json()
+    except MultiValueDictKeyError:
+        j_son_nome=''
     return render(request,'procura_nome.html',{'json_nome':j_son_nome})

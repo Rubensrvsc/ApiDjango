@@ -121,5 +121,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/api/'
+LOGIN_REDIRECT_URL = '/procura_nome/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'

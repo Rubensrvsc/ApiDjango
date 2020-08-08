@@ -2,10 +2,19 @@
 
 {% block body %}
 
-<div>
-    <h3>{{json_nome.name}}</h3>
-    <h3>{{json_nome.age}}</h3>
-    <h3>{{json_nome.count}}</h3>  
+<form method="GET" action="{% url 'procura_nome' %}">
+    <input type="text" name="nome" id="nome" placeholder="Digite um nome: ">
+    <button type="submit">Procurar</button> 
+    </form>
+
+<div class="procurar_nome">
+    {% if json_nome is '' %}
+        <p>Digite um nome no formulário acima</p>
+    {% else %}
+    <h3>Nome: {{json_nome.name}}</h3>
+    <h3>Idade média: {{json_nome.age}}</h3>
+    <h3>Número de pessoas: {{json_nome.count}}</h3>  
+    {% endif %}
   </div>
 
 {% endblock %}
