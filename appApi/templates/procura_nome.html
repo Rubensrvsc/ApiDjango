@@ -2,10 +2,12 @@
 
 {% block body %}
 
+<div class=".form_procura">
 <form method="GET" action="{% url 'procura_nome' %}">
     <input type="text" name="nome" id="nome" placeholder="Digite um nome: ">
     <button type="submit">Procurar</button> 
     </form>
+</div>
 
 <div class="procurar_nome">
     {% if json_nome is '' %}
