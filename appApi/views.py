@@ -18,7 +18,7 @@ def cadastrar_usuario(request):
         form_usuario = UserCreationForm(request.POST)
         if form_usuario.is_valid():
             form_usuario.save()
-            return redirect('api')
+            return redirect('procura_nome')
     else:
         form_usuario = UserCreationForm
     return render(request, 'registrar.html',{'form_usuario':form_usuario})
