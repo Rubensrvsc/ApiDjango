@@ -2,7 +2,6 @@
 
 .cabecalho{
     width: 100%;
-    height: 10%;
     position: fixed;
     margin-top: 0px;
     margin-left: 0px;
@@ -38,3 +37,18 @@
     color: #6D6D6D;
     border-bottom:3px solid #EA0000;
 }
+
+.bt_logout{
+    margin-top: 3%;
+    text-align: center;
+}
+
+.form_cabecalho{
+    margin-top: 3%;
+    text-align: center;
+}
+
+.bt_procura{
+    margin-top: 10%;
+}
+

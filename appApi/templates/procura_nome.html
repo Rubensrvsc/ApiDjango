@@ -2,20 +2,26 @@
 
 {% block body %}
 
-<div class=".form_procura">
+
+
+<div class="form_cabecalho" >
 <form method="GET" action="{% url 'procura_nome' %}">
-    <input type="text" name="nome" id="nome" placeholder="Digite um nome: ">
-    <button type="submit">Procurar</button> 
+    <div class="form-group">
+    <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite um nome: ">
+    <button class="btn btn-primary" type="submit" id="bt_procura">Procurar</button> 
+</div>
     </form>
 </div>
 
-<div class="procurar_nome">
+<div class="card">
     {% if json_nome is '' %}
         <p>Digite um nome no formulário acima</p>
     {% else %}
-    <h3>Nome: {{json_nome.name}}</h3>
-    <h3>Idade média: {{json_nome.age}}</h3>
-    <h3>Número de pessoas: {{json_nome.count}}</h3>  
+    <div class="card-body">
+        <h3 class="card-text">Nome: {{json_nome.name}}</h3>
+        <h3 class="card-text">Idade média: {{json_nome.age}}</h3>
+        <h3 class="card-text">Número de pessoas: {{json_nome.count}}</h3> 
+    </div> 
     {% endif %}
   </div>
 
