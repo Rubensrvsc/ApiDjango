@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="../static/styles/procura_nome.css" rel="stylesheet">
     <title>Cadastro de usuários</title>
 </head>
 <body>
-
-<form method="post">
+<div class="login-page">
+    <div class="form">
+<form method="post" class="register-form">
     {% csrf_token %}
 
     <div class="form-group">
@@ -28,12 +30,11 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Cadastrar" class="btn btn-primary">
+        <button>Create</button>
+        <p class="message">Já possui conta? <a href="{% url 'login' %}">Login</a></p>
     </div>
 </form>
-
-<div>
-    <a href="{% url 'login' %}">Vá ao login</a>
+</div>
 </div>
 
 </body>
